@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
@@ -7,9 +8,13 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
+
+  previsao = {};
+
   constructor(private api: ApiService) {
-    this.api.buscarPrevisao().subscribe((dados) => {
+    this.api.buscarPrevisao().subscribe(dados => {
       console.log(dados);
+      this.previsao = dados;
     });
   }
 }
